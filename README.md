@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/aakhmedkhodzhaev/Job4j_Middle.svg?branch=master)](https://travis-ci.org/aakhmedkhodzhaev/Job4j_Middle)
+
 Репозиторий Ахмедходжаева Абдулазиз хона.
 
 # Job4j_Middle excellent.
