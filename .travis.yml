@@ -10,11 +10,9 @@ sudo: false
 # после выполнения сборки запустить скрипт, который будет собирать статистику по JaCoCo
 # Здесь используется сторонни сервис https://codecov.io/
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
 
 env:
 global:
-  - CODECOV_TOKEN="b7d07776-4bf9-4dbb-b63c-02f445d96c04"
 
 
 # Отправлять уведомление на почту teenager_08@inbox.ru если сборка упала
