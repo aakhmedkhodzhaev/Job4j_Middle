@@ -23,4 +23,4 @@ notifications:
     recipients:
       - teenager_08@inbox.ru
     on_success: never # default: change
-    on_failure: never # default: always
+    on_failure: always # default: always
