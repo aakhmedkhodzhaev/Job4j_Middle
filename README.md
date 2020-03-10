@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/aakhmedkhodzhaev/Job4j_Middle.svg?branch=master)](https://travis-ci.org/aakhmedkhodzhaev/Job4j_Middle)
+[![codecov](https://codecov.io/gh/aakhmedkhodzhaev/Job4j_Middle/branch/master/graph/badge.svg)](https://codecov.io/gh/aakhmedkhodzhaev/Job4j_Middle)
 
 Репозиторий Ахмедходжаева Абдулазиз хона.
 
