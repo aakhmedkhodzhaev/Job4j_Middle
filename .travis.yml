@@ -14,7 +14,7 @@ after_success:
 
 env:
 global:
-  - CODECOV_TOKEN="db41bdde-e884-41f1-a0e1-4aef10888f10"
+  - CODECOV_TOKEN="90089886-24ce-4ee1-8da8-ae83644891f4"
 
 
 # Отправлять уведомление на почту teenager_08@inbox.ru если сборка упала
