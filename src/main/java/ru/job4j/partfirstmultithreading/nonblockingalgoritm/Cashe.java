@@ -1,5 +1,13 @@
 package ru.job4j.partfirstmultithreading.nonblockingalgoritm;
 
+/**
+ * @author Akhmedkhodzhaev A.A.
+ * @version 1.0 15.03.2020
+ * @task 1. Неблокирующий кеш[#209946]
+ * @aim Сделать кеш для хранение моделей
+ * @others Имеется Тест для проверки работы программы
+ */
+
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Cashe {
