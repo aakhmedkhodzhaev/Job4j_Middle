@@ -1,7 +1,6 @@
-package ru.job4j.waitnotify;
+package ru.job4j.partfirstmultithreading.waitnotify;
 
 import org.junit.Test;
-import ru.job4j.partfirstmultithreading.waitnotify.SimpleBlockingQueue;
 
 
 public class SimpleBlockingQueueTest {
