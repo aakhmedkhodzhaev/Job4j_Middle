@@ -36,8 +36,6 @@ public class CasheTest {
         assertThat(st.cashe.get(2).getVersion(), is(1));
         st.update(new Cashe.Base(2, 1));
         assertThat(st.cashe.get(2).getVersion(), is(2));
-        st.delete(new Cashe.Base(2,1));
-        assertThat(st.cashe.get(2).getVersion(), is(2));
     }
 
     @Test(expected = OptimisticException.class)
