@@ -62,10 +62,6 @@ class Producer {
                 for (int index = 0; index != 3; index++) {
                     try {
                         base.queue.offer(index);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    try {
                         Thread.sleep(500);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
