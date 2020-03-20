@@ -15,8 +15,8 @@ public class Cashe {
     ConcurrentHashMap<Integer, Base> cashe = new ConcurrentHashMap<>();
 
     static class Base {
-        int id;
-        int version;
+        private int id;
+        private int version;
 
         public Base(int id, int version) {
             this.id = id;
