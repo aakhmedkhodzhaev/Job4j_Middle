@@ -22,7 +22,7 @@ public class SimpleBlockingQueue<T> {
      * Очередь для хранения элементов
      */
     @GuardedBy("this")
-    private Queue<T> queue = new LinkedList<>();
+    private final Queue<T> queue = new LinkedList<>();
     private final int limit;
 
     public SimpleBlockingQueue(int limit) {
@@ -32,13 +32,9 @@ public class SimpleBlockingQueue<T> {
     /**
      * Добавляем элемент если очереди нет, если есть выставляем wait();
      */
-    public synchronized void offer(T value) {
+    public synchronized void offer(T value) throws InterruptedException {
         while (queue.size() >= limit) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                e.getMessage();
-            }
+            wait();
         }
         this.queue.offer(value);
         notifyAll();
@@ -56,8 +52,8 @@ public class SimpleBlockingQueue<T> {
     }
 
     /**
-     *  Возвращаем пустые данные
-     * */
+     * Возвращаем пустые данные
+     */
     public synchronized boolean isEmpty() {
         return queue.size() == 0;
     }

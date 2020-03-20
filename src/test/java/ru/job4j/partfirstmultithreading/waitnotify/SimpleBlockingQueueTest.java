@@ -19,7 +19,6 @@ public class SimpleBlockingQueueTest {
                     queue.offer(i);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    e.getMessage();
                 }
             }
         }
