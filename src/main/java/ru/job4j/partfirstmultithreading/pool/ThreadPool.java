@@ -4,7 +4,7 @@ package ru.job4j.partfirstmultithreading.pool;
  * @author Akhmedkhodzhaev A.A.
  * @version 1.0 21.03.2020
  * @task 1. Реализовать ThreadPool[#209926]
- * @aim
+ * @aim Хранилища для ресурсов
  * @others Имеется Тест для проверки работы программы
  */
 
