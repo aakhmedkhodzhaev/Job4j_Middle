@@ -15,17 +15,11 @@ import java.util.List;
 import java.util.concurrent.RejectedExecutionException;
 
 public class ThreadPool {
+
     private final List<Thread> threads = new LinkedList<>();
     private final SimpleBlockingQueue<Runnable> tasks = new SimpleBlockingQueue<>(10);
 
-    private boolean isActive = true;
-
-    public void work(Runnable job) throws InterruptedException {
-        if (!isActive) {
-            throw new RejectedExecutionException();
-        }
-        tasks.offer(job); // добавляем задачи в блокирующую очередь
-    }
+    private volatile boolean isActive = true;
 
     public ThreadPool() {
         int size = Runtime.getRuntime().availableProcessors();
@@ -46,6 +40,16 @@ public class ThreadPool {
             thread.start();
         }
     }
+
+
+
+    public void work(Runnable job) throws InterruptedException {
+        if (!isActive) {
+            throw new RejectedExecutionException();
+        }
+        tasks.offer(job); // добавляем задачи в блокирующую очередь
+    }
+
 
     public void shutdown() {
         isActive = false;
