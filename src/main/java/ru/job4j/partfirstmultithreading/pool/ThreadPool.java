@@ -16,10 +16,10 @@ import java.util.concurrent.RejectedExecutionException;
 
 public class ThreadPool {
 
+    private volatile boolean isActive = true;
+
     private final List<Thread> threads = new LinkedList<>();
     private final SimpleBlockingQueue<Runnable> tasks = new SimpleBlockingQueue<>(10);
-
-    private volatile boolean isActive = true;
 
     public ThreadPool() {
         int size = Runtime.getRuntime().availableProcessors();
