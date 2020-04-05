@@ -30,7 +30,7 @@ public class ThreadPool {
                         try {
                             tasks.poll().run(); // получаем задачу их очереди
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            Thread.currentThread().interrupt();
                         }
                     }
                 }
