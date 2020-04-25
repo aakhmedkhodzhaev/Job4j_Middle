@@ -27,13 +27,6 @@ public class EmailNotification {
     public void close() {
         this.pool.shutdown();
         System.out.println("Pool is closed.");
-        while (!pool.isTerminated()) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        } // Закрываем пул и ждем пока все задачи завершаться.
     }
 
     public void send(String subject, String body, String email) {
