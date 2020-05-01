@@ -1,6 +1,6 @@
 package ru.job4j.partfirstmultithreading.waitnotify;
 
-public class CountBarrier implements Runnable {
+public class CountBarrier {
     private final Object monitor = this;
 
     private final int total;
@@ -13,15 +13,15 @@ public class CountBarrier implements Runnable {
 
     public void count() {
         synchronized (monitor) {
+            monitor.notifyAll();
             count++;
         }
     }
 
     public void await() {
         synchronized (monitor) {
-            run();
             if (count == total) {
-                monitor.notifyAll();
+                // Я не совсем понял что должно быть здесь
             } else {
                 try {
                     monitor.wait();
@@ -32,10 +32,4 @@ public class CountBarrier implements Runnable {
         }
     }
 
-    @Override
-    public void run() {
-        for (int i = 0; i < total; i++) {
-            count();
-        }
-    }
 }
