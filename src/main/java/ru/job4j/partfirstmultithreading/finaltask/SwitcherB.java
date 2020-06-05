@@ -16,9 +16,10 @@ public class SwitcherB {
         Thread first = new Thread(
                 () -> {
                     while (true) {
-                        ms.doneMaster();
+                        ms.tryMaster();
                         System.out.println("Thread A: ");
                         try {
+                            ms.doneMaster();
                             Thread.sleep(1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
@@ -29,9 +30,10 @@ public class SwitcherB {
         Thread second = new Thread(
                 () -> {
                     while (true) {
-                        ms.doneSlave();
+                        ms.trySlave();
                         System.out.println("Thread B: ");
                         try {
+                            ms.doneSlave();
                             Thread.sleep(1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();

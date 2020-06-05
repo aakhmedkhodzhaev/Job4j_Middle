@@ -1,55 +1,42 @@
 package ru.job4j.partfirstmultithreading.finaltask;
 
 public class MasterSlaveBarrier {
-    private int cnt = 0;
 
-    static class Counter {
-        private Long counter = 0L;
-
-        public synchronized void incrementCounter() {
-            counter++;
-            System.out.println(counter);
-        }
-    }
-
-    Counter counter = new Counter();
+    Boolean bMaster = true;
+    Boolean bSlave = true;
 
     public synchronized void tryMaster() {
-        while (cnt >= 1) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        cnt++;
-        counter.incrementCounter();
-        notify();
+        bMaster = true;
+        notifyAll();
     }
 
     public synchronized void trySlave() {
-        while (cnt < 1) {
+        bSlave = true;
+        notifyAll();
+    }
+
+    public synchronized void doneMaster() {
+        while (bMaster == true) {
             try {
                 wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            bMaster = false;
         }
-        cnt--;
-        counter.incrementCounter();
         notify();
     }
 
-    public void doneMaster() {
-        for (int i = 0; i < 1; i++) {
-            tryMaster();
+    public synchronized void doneSlave() {
+        while (bSlave == true) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            bSlave = false;
         }
-    }
-
-    public void doneSlave() {
-        for (int i = 0; i < 1; i++) {
-            trySlave();
-        }
+        notify();
     }
 
 }
