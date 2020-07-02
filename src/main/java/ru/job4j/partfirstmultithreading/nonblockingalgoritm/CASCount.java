@@ -14,9 +14,16 @@ public class CASCount<T> {
     private final AtomicReference<Integer> count = new AtomicReference<>();
 
     public void increment() {
-        Integer current = count.get();
-        Integer next = current + 1;
-        count.compareAndSet(current, next);
+        Integer current;
+        Integer next;
+        do {
+            current = count.get();
+            if (current == null) {
+                throw new UnsupportedOperationException("Count is not impl.");
+            }
+            next = current + 1;
+        }
+        while (count.compareAndSet(current, next));
     }
 
     public AtomicReference<Integer> get() {
