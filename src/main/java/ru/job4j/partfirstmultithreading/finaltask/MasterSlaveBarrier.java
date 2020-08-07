@@ -1,6 +1,5 @@
 package ru.job4j.partfirstmultithreading.finaltask;
 
-@SuppressWarnings("ALL")
 public class MasterSlaveBarrier {
 
     Boolean bMaster = true;
@@ -17,7 +16,7 @@ public class MasterSlaveBarrier {
     }
 
     public synchronized void doneMaster() {
-        while (bMaster == true) {
+        while (bMaster) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -29,7 +28,7 @@ public class MasterSlaveBarrier {
     }
 
     public synchronized void doneSlave() {
-        while (bSlave == true) {
+        while (bSlave) {
             try {
                 wait();
             } catch (InterruptedException e) {
