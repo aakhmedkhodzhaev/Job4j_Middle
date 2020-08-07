@@ -1,5 +1,6 @@
 package ru.job4j.partfirstmultithreading.finaltask;
 
+@SuppressWarnings("ALL")
 public class MasterSlaveBarrier {
 
     Boolean bMaster = true;
