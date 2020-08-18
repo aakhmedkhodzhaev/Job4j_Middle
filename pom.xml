@@ -88,7 +88,7 @@
                                 <limit>
                                     <counter>LINE</counter>
                                     <value>COVEREDRATIO</value>
-                                    <minimum>0.20</minimum>
+                                    <minimum>0.50</minimum>
                                 </limit>
                             </limits>
                         </rule>
@@ -104,6 +104,25 @@
                             <includes>
                                 <include>**/*test*</include>
                             </includes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>merge-execs</id>
+                        <phase>pre-site</phase>
+                        <inherited>false</inherited>
+                        <goals>
+                            <goal>merge</goal>
+                        </goals>
+                        <configuration>
+                            <fileSets>
+                                <fileSet>
+                                    <directory>${basedir}</directory>
+                                    <includes>
+                                        <include>**/target/*.exec</include>
+                                    </includes>
+                                </fileSet>
+                            </fileSets>
+                            <destFile>${jacoco.ut.merged.exec}</destFile>
                         </configuration>
                     </execution>
                     <execution>
